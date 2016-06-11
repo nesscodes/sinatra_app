@@ -1,8 +1,15 @@
-# Homepage (Root path)
+# # Homepage (Root path)
 get '/' do
   erb :index
 end
 
-get '/messages' do 
+get '/messages' do
+  @messages = Message.all 
   erb :'messages/index'
 end
+
+get '/messages' do
+  @messages = Message.all 
+  erb :'messages/new'
+end
+
