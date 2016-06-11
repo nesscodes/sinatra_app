@@ -29,6 +29,19 @@ post '/messages' do
 redirect '/messages'
 end
 
+post '/messages' do 
+  @messages = Message.new(
+    title: params[:title],
+    content: params[:content],
+    author: params[:author]
+    )
+  if @message.save 
+    redirect '/messages'
+  else
+    erb :'messages/new'
+  end
+end
+
 
 
 
