@@ -8,8 +8,22 @@ get '/messages' do
   erb :'messages/index'
 end
 
-get '/messages' do
+get '/messages/new' do
   @messages = Message.all 
   erb :'messages/new'
 end
+
+post '/messages' do 
+
+  @message = Message.new(
+    title: params[:title],
+    content: params[:content],
+    author: params[:author]
+)
+@message.save 
+redirect '/messages'
+
+end
+
+
 
